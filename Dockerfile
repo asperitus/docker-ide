@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
     git \
+    openssh-client \
     sudo \
     unzip \
     wget \
@@ -31,15 +32,39 @@ RUN ln -sf bash /bin/sh
 ENV LOGIN=vcap
 ENV HOME /home/$LOGIN
 
-RUN useradd -m -b /home -s /bin/bash $LOGIN \
-    && echo "$LOGIN ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
-USER $LOGIN
-WORKDIR /home/$LOGIN
+RUN echo "Add su user $LOGIN ..." \
+    && useradd -m -b /home -s /bin/bash $LOGIN \
+    && echo "$LOGIN ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+    && echo "export PATH=\"\$PATH:$HOME/go/bin:/usr/local/go/bin\"" >> /etc/bash.bashrc
 
 # Install additional packages
-COPY script/install-pkg.sh /tmp/install-pkg.sh
-RUN /bin/bash /tmp/install-pkg.sh
+RUN echo "Installing IntelliJ IDEA ..." \
+    && wget "https://download.jetbrains.com/idea/ideaIC-2016.3.7.tar.gz" -O /tmp/idea.tar.gz --no-check-certificate --quiet --show-progress=off \
+    && mkdir -p /opt/idea \
+    && tar -xf /tmp/idea.tar.gz --strip-components=1 -C /opt/idea \
+    && rm /tmp/idea.tar.gz
+
+RUN ln -sf /opt/idea/bin/idea.sh /usr/local/bin/ide
+
+##
+RUN echo "Installing Go ..." \
+    && wget "https://redirector.gvt1.com/edgedl/go/go1.9.2.linux-amd64.tar.gz" -O /tmp/go.tar.gz --no-check-certificate --quiet --show-progress=off \
+    && tar -xf /tmp/go.tar.gz -C /usr/local/ \
+    && rm /tmp/go.tar.gz
+
+ENV GOROOT /usr/local/go
+
+#
+RUN git config --system http.sslVerify "false"
+
+##
+USER $LOGIN
+ENV GOPATH /home/$LOGIN/go
+
+WORKDIR /home/$LOGIN
+
+#
+ADD .dhnt $HOME
 
 ##
 CMD ["/bin/bash"]

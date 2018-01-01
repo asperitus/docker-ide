@@ -22,15 +22,28 @@ export DISPLAY=${ipaddr}:0
 xhost + $ipaddr
 
 #
-export DHNT_BASE=~/.dhnt
-
-unix_name=$(uname)
-if [ "$unix_name" =~ "Microsoft" ]; then
-    export DHNT_BASE=/c/Users/liqiang/AppData/.dhnt
+if [ -z "$DHNT_BASE" ]; then
+    unix_name=$(uname -a)
+    case "${unix_name}" in
+        *Microsoft* )
+            echo "Windows 10 setup ..."
+            export DHNT_BASE="/c/Users/liqiang/AppData/.dhnt"
+        ;;
+        *Darwin* )
+            echo "Mac OSX setup ..."
+            export DHNT_BASE=~/.dhnt
+        ;;
+        *)
+            echo "Default setup ..."
+            export DHNT_BASE=~/.dhnt
+    esac
 fi
 
 #
-volume="-v ${DHNT_BASE}/go:/home/vcap/go"
+volume="-v ${DHNT_BASE}:/dhnt"
 [ -d "/private/tmp" ] && volume="$volume -v /private/tmp:/private/tmp"
+
+[ ! -z "${DHNT_VCAP_HOME}" ] && volume="$volume -v ${DHNT_VCAP_HOME}:/home/vcap"
+[ ! -z "${GOPATH}" ] && volume="$volume -v ${GOPATH}:/home/vcap/go"
 
 docker run $proxy $volume -e DISPLAY=${DISPLAY} -it --rm --privileged --name dhnt-ide dhnt/ide
