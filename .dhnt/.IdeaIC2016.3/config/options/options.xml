@@ -5,9 +5,11 @@
     <property name="file.chooser.recent.files" value="$USER_HOME$/go&#10;/usr/local/go" />
     <property name="toolwindow.stripes.buttons.info.shown" value="true" />
     <property name="lastTip" value="1" />
-    <property name="PLUGIN_FILTER" value="" />
+    <property name="PLUGIN_FILTER" value="mar" />
     <property name="go.tutorial.project.notification.shown" value="true" />
     <property name="go.last.update.timestamp" value="1514851524267" />
     <property name="ExpandBeforeRunStepsPanel" value="true" />
+    <property name="fileTypeChangedCounter" value="2" />
+    <property name="markdown.do.not.ask.to.change.preview.provider" value="true" />
   </component>
 </application>

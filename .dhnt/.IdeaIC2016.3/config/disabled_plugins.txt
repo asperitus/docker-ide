@@ -3,6 +3,7 @@ ByteCodeViewer
 CVS
 Coverage
 DevKit
+Docker
 JUnit
 Subversion
 TestNG-J
@@ -12,6 +13,7 @@ com.intellij.copyright
 com.intellij.java-i18n
 com.intellij.tasks
 com.intellij.uiDesigner
+com.vladsch.idea.multimarkdown
 hg4idea
 org.editorconfig.editorconfigjetbrains
 org.intellij.groovy

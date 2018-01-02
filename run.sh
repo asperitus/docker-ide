@@ -42,7 +42,7 @@ volume=""
 [ -d "/private/tmp" ] && volume="$volume -v /private/tmp:/private/tmp"
 
 [ ! -z "${DHNT_VCAP_HOME}" ] && volume="$volume -v ${DHNT_VCAP_HOME}:/home/vcap"
-[ ! -z "${GOPATH}" ] && volume="$volume -v ${GOPATH}:/home/vcap/go" || volume="$volume -v ${DHNT_BASE}/go:/home/vcap/go"
+[ ! -z "${GOPATH}" ] && volume="$volume -v ${GOPATH}:/home/vcap/go"
 
 docker run $proxy $volume -e DISPLAY=${DISPLAY} -it --rm --privileged --name dhnt-ide dhnt/ide
 

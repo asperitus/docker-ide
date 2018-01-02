@@ -9,10 +9,11 @@
     <location key="#Docker_Deployment.0.0.1280.778" x="357" y="49" />
     <location key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor.0.0.1280.778" x="223" y="37" />
     <location key="#Go_Libraries.0.0.1280.778" x="440" y="49" />
+    <location key="#com.intellij.fileTypes.FileTypeChooser.0.0.1280.778" x="335" y="182" />
     <size key="FileChooserDialogImpl.0.0.1280.778" width="414" height="479" />
     <size key="#Browse_JetBrains_Plugins_.0.0.1280.778" width="1247" height="778" />
-    <size key="SettingsEditor.0.0.1280.778" width="1052" height="685" />
-    <size key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog.0.0.1280.778" width="349" height="209" />
+    <size key="SettingsEditor.0.0.1280.778" width="1032" height="725" />
+    <size key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog.0.0.1280.778" width="349" height="201" />
     <size key="#Docker_Deployment.0.0.1280.778" width="555" height="672" />
   </component>
 </application>
