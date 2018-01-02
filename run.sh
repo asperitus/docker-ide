@@ -26,7 +26,7 @@ unix_name=$(uname -a)
 case "${unix_name}" in
     *Microsoft* )
         echo "Windows 10 setup ..."
-        export DHNT_BASE="/c/Users/liqiang/AppData/.dhnt"
+        export DHNT_BASE="/c/Users/liqiang/.dhnt"
     ;;
     *Darwin* )
         echo "Mac OSX setup ..."
@@ -45,3 +45,5 @@ volume="-v ${DHNT_BASE}:/dhnt"
 [ ! -z "${GOPATH}" ] && volume="$volume -v ${GOPATH}:/home/vcap/go" || volume="$volume -v ${DHNT_BASE}/go:/home/vcap/go"
 
 docker run $proxy $volume -e DISPLAY=${DISPLAY} -it --rm --privileged --name dhnt-ide dhnt/ide
+
+##
