@@ -46,4 +46,4 @@ volume="-v ${DHNT_BASE}:/dhnt"
 
 docker run $proxy $volume -e DISPLAY=${DISPLAY} -it --rm --privileged --name dhnt-ide dhnt/ide
 
-##
+#
