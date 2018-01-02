@@ -1,0 +1,13 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="installed.kotlin.plugin.version" value="1.0.5-release-IJ2016.3-1" />
+    <property name="android-component-compatibility-check" value="1514843815728" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/go&#10;/usr/local/go" />
+    <property name="toolwindow.stripes.buttons.info.shown" value="true" />
+    <property name="lastTip" value="1" />
+    <property name="PLUGIN_FILTER" value="" />
+    <property name="go.tutorial.project.notification.shown" value="true" />
+    <property name="go.last.update.timestamp" value="1514851524267" />
+    <property name="ExpandBeforeRunStepsPanel" value="true" />
+  </component>
+</application>

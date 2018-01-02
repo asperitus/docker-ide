@@ -6,6 +6,14 @@ set -x
 # build behind corporate firewall - http_proxy host needs to be ip address
 #[ -z "$http_proxy" ] && proxy="" || proxy="--build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy"
 
+function cleanup() {
+	rm .dhnt/.bash_history
+	rm -rf .dhnt/.IdeaIC2016.3/system
+	rm .dhnt/go/.DS_Store
+}
+
+cleanup
+
 #
 docker build $@ --rm $proxy -t dhnt/ide .
 
