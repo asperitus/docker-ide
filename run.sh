@@ -38,7 +38,7 @@ case "${unix_name}" in
 esac
 
 #
-volume="-v ${DHNT_BASE}:/dhnt"
+volume=""
 [ -d "/private/tmp" ] && volume="$volume -v /private/tmp:/private/tmp"
 
 [ ! -z "${DHNT_VCAP_HOME}" ] && volume="$volume -v ${DHNT_VCAP_HOME}:/home/vcap"

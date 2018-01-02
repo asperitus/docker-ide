@@ -3,6 +3,11 @@ local
 #
 .dhnt/.bash_history
 .dhnt/.IdeaIC2016.3/system/
-##
+.dhnt/.java/fonts/1.8.0_112-release
+
+#invalid filename for windows
+.dhnt/.java/.userPrefs/jetbrains/
+
+#on windows
 **/*___jb_old___
 **/*___jb_tmp___
