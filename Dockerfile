@@ -64,7 +64,7 @@ ENV GOPATH /home/$LOGIN/go
 WORKDIR /home/$LOGIN
 
 #
-ADD .dhnt $HOME
+ADD --chown=vcap:vcap .dhnt $HOME
 
 ##
 CMD ["/bin/bash"]
