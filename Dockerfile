@@ -24,7 +24,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxslt1.1 \
     libgtk2.0-0 \
     \
-    xterm
+    xterm \
+    libcanberra-gtk-module
 
 RUN ln -sf bash /bin/sh
 
